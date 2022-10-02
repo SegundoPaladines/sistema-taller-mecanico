@@ -1,0 +1,80 @@
+omposer create-project laravel/laravel sistema-taller-mecanico
+
+
+Ver en https://jetstream.laravel.com/2.x/installation.html
+
+Ejecutar el comando de instalacion de jetstream 
+                        instalacion de livewire
+npm install
+npm run dev para poder ejecutar todo el entorno (Laravel 9)
+
+Si causa errores descargar la ultima version de node
+
+
+Crear un archivo sql en /database
+crear un seeder TallerMecanicoSeeder
+Ahí importar el sql
+Invocar ese seeder en DatabaseSeeder
+
+Ejecutar php artisan migrate:fresh --seed
+
+    Migrar la DB apartir de un solo script
+    https://www.youtube.com/watch?v=_yYrGkErP0Q
+
+
+Crear un host local
+    Ver instrucciones en algoritmos/php
+
+Reiniciar apache
+
+
+
+-----
+Abrir tallermecanico.tm
+Y en una teminal ejecutar npm run dev
+
+Ir config/jetstream.php
+
+    Descomentar:
+        termsAndPrivacyPolicy
+        profilePhotos
+        api
+    Comentar:
+        teams
+
+Ir a archivo .env
+    Dejar 
+    APP_URL=    (vacio)
+
+    Ahora ya funciona el subir fotos de perfil
+
+Preparando AdminLTE
+    Ir a routeserviceprovider.php
+        Dejar
+        public const HOME = '/';
+
+    Ir a routes y crear admin.php
+        Copiar y pegar en el las dos 1eras lineas de web.php
+
+    Regiatrar este archivo como un  archivo de rutas en 
+        RouteServiceProviders
+
+    Crear un controlador Admin/HomeController
+        Crearle un método 
+            index()
+        Devuelve una vista creada en views/Admin/index.blade.php
+
+    Asociar la ruta /admin con con el controlador
+
+    Instalar AdminLTE
+        https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Installation
+
+        composer require jeroennoten/laravel-adminlte
+        php artisan adminlte:install
+
+        Ir a https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Usage
+        En la vista creada Copiar y pegar el codigo blade plantilla AdminLTE
+
+        https://www.youtube.com/watch?v=LGNPiUkRGxs&list=PLZ2ovOgdI-kWTCkbH749Ukvq7FMz5ahpP
+
+
